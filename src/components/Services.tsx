@@ -31,27 +31,27 @@ const Services = () => {
     <section id="servicos" className="section-padding bg-secondary overflow-hidden">
       <div className="section-container">
         {/* Header */}
-        <FadeInWhenVisible className="text-center mb-16">
-          <span className="inline-block bg-accent/10 text-accent-foreground px-4 py-2 rounded-full font-semibold text-sm uppercase tracking-wide mb-4">
+        <FadeInWhenVisible className="text-center mb-10 sm:mb-12 md:mb-16">
+          <span className="inline-block bg-accent/10 text-accent-foreground px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-semibold text-xs sm:text-sm uppercase tracking-wide mb-3 sm:mb-4">
             Nossos serviços
           </span>
-          <h2 className="section-title text-foreground">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
             Soluções completas
           </h2>
-          <p className="section-subtitle mx-auto mt-4">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
             Além de produtos de qualidade, oferecemos serviços especializados para atender todas as suas necessidades
           </p>
         </FadeInWhenVisible>
 
         {/* Image + Services Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-10 sm:mb-12 md:mb-16">
           {/* Image */}
-          <FadeInWhenVisible direction="left">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
+          <FadeInWhenVisible direction="left" className="order-2 lg:order-1">
+            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl group">
               <ParallaxImage 
                 src={serviceInstall} 
                 alt="Técnico instalando vidro em máquina pesada" 
-                className="h-80 md:h-[450px]"
+                className="h-56 sm:h-72 md:h-80 lg:h-[450px]"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-transparent to-accent/20" />
               {/* Floating badge */}
@@ -59,7 +59,7 @@ const Services = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.5 }}
-                className="absolute top-4 right-4 bg-accent text-accent-foreground px-4 py-2 rounded-full font-bold text-sm shadow-lg"
+                className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-accent text-accent-foreground px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-bold text-xs sm:text-sm shadow-lg"
               >
                 Serviço especializado
               </motion.div>
@@ -67,20 +67,20 @@ const Services = () => {
           </FadeInWhenVisible>
 
           {/* Services List */}
-          <StaggerContainer className="grid sm:grid-cols-2 gap-6" staggerDelay={0.1}>
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 order-1 lg:order-2" staggerDelay={0.1}>
             {services.map((service, index) => (
               <StaggerItem key={index}>
-                <div className="bg-card p-6 rounded-xl border border-border hover:border-accent hover:shadow-xl transition-all duration-300 group h-full">
+                <div className="bg-card p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl border border-border hover:border-accent hover:shadow-lg sm:hover:shadow-xl transition-all duration-300 group h-full">
                   <motion.div 
-                    className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-accent transition-colors duration-300"
+                    className="w-11 h-11 sm:w-12 md:w-14 sm:h-12 md:h-14 bg-accent/10 rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-accent transition-colors duration-300"
                     whileHover={{ rotate: 10 }}
                   >
-                    <service.icon className="w-7 h-7 text-accent-foreground group-hover:text-accent-foreground" />
+                    <service.icon className="w-5 h-5 sm:w-6 md:w-7 sm:h-6 md:h-7 text-accent-foreground group-hover:text-accent-foreground" />
                   </motion.div>
-                  <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
+                  <h3 className="text-base sm:text-lg font-bold text-foreground mb-1.5 sm:mb-2 group-hover:text-accent transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                     {service.description}
                   </p>
                 </div>
@@ -91,26 +91,26 @@ const Services = () => {
 
         {/* Highlight */}
         <FadeInWhenVisible>
-          <div className="bg-accent rounded-2xl p-8 md:p-12 relative overflow-hidden">
+          <div className="bg-accent rounded-xl sm:rounded-2xl p-5 sm:p-8 md:p-10 lg:p-12 relative overflow-hidden">
             {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-0 w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64 bg-white/10 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-24 sm:w-36 md:w-48 h-24 sm:h-36 md:h-48 bg-primary/10 rounded-full blur-3xl" />
             
-            <div className="grid md:grid-cols-2 gap-8 items-center relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center relative z-10">
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-accent-foreground mb-4">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-accent-foreground mb-3 sm:mb-4">
                   Atendimento especializado
                 </h3>
-                <p className="text-accent-foreground/80 leading-relaxed">
+                <p className="text-sm sm:text-base text-accent-foreground/80 leading-relaxed">
                   Nossa equipe é formada por profissionais com vasta experiência no mercado de vidros 
                   automotivos e industriais. Estamos prontos para ajudar você a encontrar a melhor 
                   solução para sua necessidade.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-end">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-end">
                 <motion.a
                   href="tel:1933770754"
-                  className="bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-xl text-center hover:bg-dark-lighter transition-colors duration-300"
+                  className="bg-primary text-primary-foreground font-semibold px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl text-center text-sm sm:text-base hover:bg-dark-lighter transition-colors duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -120,7 +120,7 @@ const Services = () => {
                   href="https://wa.me/551933770754"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-xl text-center hover:bg-dark-lighter transition-colors duration-300"
+                  className="bg-primary text-primary-foreground font-semibold px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl text-center text-sm sm:text-base hover:bg-dark-lighter transition-colors duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
