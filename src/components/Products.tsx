@@ -1,21 +1,27 @@
 import { Tractor, Truck, Construction, CheckCircle } from 'lucide-react';
+import productAgricultural from '@/assets/product-agricultural.jpg';
+import productHeavy from '@/assets/product-heavy.jpg';
+import productTruck from '@/assets/product-truck.jpg';
 
 const Products = () => {
   const products = [
     {
       icon: Tractor,
+      image: productAgricultural,
       title: 'Máquinas agrícolas',
       description: 'Vidros para tratores, colheitadeiras, pulverizadores e demais equipamentos agrícolas.',
       features: ['Temperados', 'Laminados', 'Planos e curvos', 'Alta resistência'],
     },
     {
       icon: Construction,
+      image: productHeavy,
       title: 'Máquinas pesadas',
       description: 'Vidros para retroescavadeiras, escavadeiras, pás carregadeiras e equipamentos de terraplanagem.',
       features: ['Resistência a impacto', 'Proteção UV', 'Durabilidade', 'Padrão OEM'],
     },
     {
       icon: Truck,
+      image: productTruck,
       title: 'Caminhões',
       description: 'Vidros de reposição para caminhões de todas as marcas e modelos.',
       features: ['Para-brisas', 'Vidros laterais', 'Vidros traseiros', 'Instalação'],
@@ -43,25 +49,40 @@ const Products = () => {
           {products.map((product, index) => (
             <div
               key={index}
-              className="bg-dark-lighter rounded-lg p-8 hover:bg-dark transition-all duration-300 group"
+              className="bg-dark-lighter rounded-lg overflow-hidden hover:bg-dark transition-all duration-300 group"
             >
-              <div className="w-16 h-16 bg-accent rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <product.icon className="w-8 h-8 text-accent-foreground" />
+              {/* Product Image */}
+              <div className="relative h-56 overflow-hidden">
+                <img 
+                  src={product.image} 
+                  alt={`Vidros para ${product.title.toLowerCase()}`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-lighter/90 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+                    <product.icon className="w-6 h-6 text-accent-foreground" />
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-primary-foreground mb-3">
-                {product.title}
-              </h3>
-              <p className="text-primary-foreground/70 mb-6 leading-relaxed">
-                {product.description}
-              </p>
-              <ul className="space-y-2">
-                {product.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-2 text-primary-foreground/80 text-sm">
-                    <CheckCircle className="w-4 h-4 text-accent" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+              
+              {/* Product Content */}
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-primary-foreground mb-3">
+                  {product.title}
+                </h3>
+                <p className="text-primary-foreground/70 mb-6 leading-relaxed">
+                  {product.description}
+                </p>
+                <ul className="space-y-2">
+                  {product.features.map((feature, i) => (
+                    <li key={i} className="flex items-center gap-2 text-primary-foreground/80 text-sm">
+                      <CheckCircle className="w-4 h-4 text-accent" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>

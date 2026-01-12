@@ -1,4 +1,5 @@
 import { Target, Eye, Heart, Handshake, Zap, Shield } from 'lucide-react';
+import aboutGlass from '@/assets/about-glass.jpg';
 
 const About = () => {
   const values = [
@@ -26,7 +27,7 @@ const About = () => {
           </p>
         </div>
 
-        {/* History */}
+        {/* History with Image */}
         <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
           <div className="space-y-6">
             <h3 className="text-2xl md:text-3xl font-bold text-foreground">
@@ -45,24 +46,36 @@ const About = () => {
             </p>
           </div>
           
-          <div className="bg-primary p-8 rounded-lg">
-            <div className="grid grid-cols-2 gap-6">
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-accent mb-2">15+</div>
-                <div className="text-primary-foreground/80 text-sm">Anos de experiência</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-accent mb-2">100%</div>
-                <div className="text-primary-foreground/80 text-sm">Brasil</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-accent mb-2">+500</div>
-                <div className="text-primary-foreground/80 text-sm">Clientes atendidos</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-accent mb-2">3</div>
-                <div className="text-primary-foreground/80 text-sm">Segmentos atendidos</div>
-              </div>
+          <div className="relative">
+            <img 
+              src={aboutGlass} 
+              alt="Vidro temperado para cabine de trator agrícola" 
+              className="rounded-lg shadow-xl w-full h-auto object-cover"
+            />
+            <div className="absolute -bottom-4 -right-4 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-bold shadow-lg">
+              +15 anos
+            </div>
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="bg-primary p-8 rounded-lg mb-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-accent mb-2">15+</div>
+              <div className="text-primary-foreground/80 text-sm">Anos de experiência</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-accent mb-2">100%</div>
+              <div className="text-primary-foreground/80 text-sm">Brasil</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-accent mb-2">+500</div>
+              <div className="text-primary-foreground/80 text-sm">Clientes atendidos</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-accent mb-2">3</div>
+              <div className="text-primary-foreground/80 text-sm">Segmentos atendidos</div>
             </div>
           </div>
         </div>
