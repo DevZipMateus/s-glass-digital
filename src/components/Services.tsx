@@ -1,4 +1,5 @@
 import { Wrench, Truck, Settings, Clock } from 'lucide-react';
+import serviceInstall from '@/assets/service-install.jpg';
 
 const Services = () => {
   const services = [
@@ -40,28 +41,41 @@ const Services = () => {
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-card p-6 rounded-lg border border-border hover:border-accent transition-all duration-300 text-center group"
-            >
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent transition-colors duration-300">
-                <service.icon className="w-8 h-8 text-accent-foreground group-hover:text-accent-foreground" />
+        {/* Image + Services Grid */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+          {/* Image */}
+          <div className="relative rounded-lg overflow-hidden shadow-xl">
+            <img 
+              src={serviceInstall} 
+              alt="Técnico instalando vidro em máquina pesada" 
+              className="w-full h-auto object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent" />
+          </div>
+
+          {/* Services List */}
+          <div className="grid sm:grid-cols-2 gap-6">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="bg-card p-6 rounded-lg border border-border hover:border-accent transition-all duration-300 group"
+              >
+                <div className="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-accent transition-colors duration-300">
+                  <service.icon className="w-7 h-7 text-accent-foreground group-hover:text-accent-foreground" />
+                </div>
+                <h3 className="text-lg font-bold text-foreground mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {service.description}
+                </p>
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {service.description}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Highlight */}
-        <div className="mt-16 bg-accent rounded-lg p-8 md:p-12">
+        <div className="bg-accent rounded-lg p-8 md:p-12">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-2xl md:text-3xl font-bold text-accent-foreground mb-4">
