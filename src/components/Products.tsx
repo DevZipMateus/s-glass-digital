@@ -1,4 +1,6 @@
+import { motion } from 'framer-motion';
 import { Tractor, Truck, Construction, CheckCircle } from 'lucide-react';
+import { FadeInWhenVisible, StaggerContainer, StaggerItem, ScaleOnHover } from './animations/ParallaxEffects';
 import productAgricultural from '@/assets/product-agricultural.jpg';
 import productHeavy from '@/assets/product-heavy.jpg';
 import productTruck from '@/assets/product-truck.jpg';
@@ -29,11 +31,17 @@ const Products = () => {
   ];
 
   return (
-    <section id="produtos" className="section-padding bg-primary">
-      <div className="section-container">
+    <section id="produtos" className="section-padding bg-primary overflow-hidden relative">
+      {/* Background Effects */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-accent rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      </div>
+
+      <div className="section-container relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block bg-accent text-accent-foreground px-4 py-2 rounded font-semibold text-sm uppercase tracking-wide mb-4">
+        <FadeInWhenVisible className="text-center mb-16">
+          <span className="inline-block bg-accent text-accent-foreground px-4 py-2 rounded-full font-semibold text-sm uppercase tracking-wide mb-4">
             Nossos produtos
           </span>
           <h2 className="section-title text-primary-foreground">
@@ -42,65 +50,74 @@ const Products = () => {
           <p className="section-subtitle text-primary-foreground/70 mx-auto mt-4">
             Vidros planos ou curvos, temperados ou laminados, para todo tipo de máquina e aplicação
           </p>
-        </div>
+        </FadeInWhenVisible>
 
         {/* Products Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <StaggerContainer className="grid md:grid-cols-3 gap-8" staggerDelay={0.15}>
           {products.map((product, index) => (
-            <div
-              key={index}
-              className="bg-dark-lighter rounded-lg overflow-hidden hover:bg-dark transition-all duration-300 group"
-            >
-              {/* Product Image */}
-              <div className="relative h-56 overflow-hidden">
-                <img 
-                  src={product.image} 
-                  alt={`Vidros para ${product.title.toLowerCase()}`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-lighter/90 to-transparent" />
-                <div className="absolute bottom-4 left-4">
-                  <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
-                    <product.icon className="w-6 h-6 text-accent-foreground" />
+            <StaggerItem key={index}>
+              <ScaleOnHover scale={1.03}>
+                <div className="bg-dark-lighter rounded-2xl overflow-hidden group h-full">
+                  {/* Product Image */}
+                  <div className="relative h-56 overflow-hidden">
+                    <motion.img 
+                      src={product.image} 
+                      alt={`Vidros para ${product.title.toLowerCase()}`}
+                      className="w-full h-full object-cover"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark-lighter via-dark-lighter/50 to-transparent" />
+                    <motion.div 
+                      className="absolute bottom-4 left-4"
+                      whileHover={{ rotate: 10, scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="w-14 h-14 bg-accent rounded-xl flex items-center justify-center shadow-lg">
+                        <product.icon className="w-7 h-7 text-accent-foreground" />
+                      </div>
+                    </motion.div>
+                  </div>
+                  
+                  {/* Product Content */}
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-primary-foreground mb-3 group-hover:text-accent transition-colors">
+                      {product.title}
+                    </h3>
+                    <p className="text-primary-foreground/70 mb-6 leading-relaxed">
+                      {product.description}
+                    </p>
+                    <ul className="space-y-2">
+                      {product.features.map((feature, i) => (
+                        <li key={i} className="flex items-center gap-2 text-primary-foreground/80 text-sm">
+                          <CheckCircle className="w-4 h-4 text-accent" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-              </div>
-              
-              {/* Product Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-primary-foreground mb-3">
-                  {product.title}
-                </h3>
-                <p className="text-primary-foreground/70 mb-6 leading-relaxed">
-                  {product.description}
-                </p>
-                <ul className="space-y-2">
-                  {product.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2 text-primary-foreground/80 text-sm">
-                      <CheckCircle className="w-4 h-4 text-accent" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+              </ScaleOnHover>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
 
         {/* CTA */}
-        <div className="text-center mt-12">
+        <FadeInWhenVisible delay={0.4} className="text-center mt-12">
           <p className="text-primary-foreground/70 mb-6">
             Não encontrou o que procura? Fabricamos vidros sob medida conforme seu projeto.
           </p>
-          <a
+          <motion.a
             href="https://wa.me/551933770754"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-accent inline-flex items-center gap-2"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             Solicitar orçamento personalizado
-          </a>
-        </div>
+          </motion.a>
+        </FadeInWhenVisible>
       </div>
     </section>
   );
