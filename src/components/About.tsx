@@ -21,7 +21,7 @@ const About = () => {
             Sobre nós
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
-            Conheça a S Glass Vidros
+            Conheça a <span className="text-accent">S Glass</span>
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
             Mais de 15 anos de experiência fornecendo vidros de alta qualidade para o agronegócio e indústria brasileira
