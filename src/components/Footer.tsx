@@ -123,13 +123,10 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-primary-foreground/10">
         <div className="section-container py-4 sm:py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-2 sm:gap-4 text-xs sm:text-sm text-primary-foreground/60 text-center md:text-left">
-            <p>
+          <p className="text-xs sm:text-sm text-primary-foreground/60 text-center">
               © {currentYear} S Glass Comércio e Distribuição de Vidros, Peças e Acessórios. 
               Todos os direitos reservados.
             </p>
-            <p>CNPJ: 43.729.447/0001-09</p>
-          </div>
         </div>
       </div>
     </footer>
