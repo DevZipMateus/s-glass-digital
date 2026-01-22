@@ -71,7 +71,7 @@ const Header = () => {
 
           {/* CTA Button - Desktop */}
           <div className="hidden md:flex items-center gap-4">
-            <motion.a href="https://wa.me/551933770754" target="_blank" rel="noopener noreferrer" className="btn-accent flex items-center gap-2 text-xs lg:text-sm py-2 px-4 lg:px-6" whileHover={{
+            <motion.a href="https://wa.me/5519991570834" target="_blank" rel="noopener noreferrer" className="btn-accent flex items-center gap-2 text-xs lg:text-sm py-2 px-4 lg:px-6" whileHover={{
             scale: 1.05
           }} whileTap={{
             scale: 0.95
@@ -148,7 +148,7 @@ const Header = () => {
           }}>
                   {link.label}
                 </motion.a>)}
-              <motion.a href="https://wa.me/551933770754" target="_blank" rel="noopener noreferrer" className="btn-accent inline-flex items-center gap-2 mt-6 text-lg" initial={{
+              <motion.a href="https://wa.me/5519991570834" target="_blank" rel="noopener noreferrer" className="btn-accent inline-flex items-center gap-2 mt-6 text-lg" initial={{
             opacity: 0,
             y: 20
           }} animate={{

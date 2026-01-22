@@ -19,8 +19,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'E-mail',
-      content: 'alcineia@sglassagricola.com.br',
-      link: 'mailto:alcineia@sglassagricola.com.br',
+      content: 'atendimento.sglass@gmail.com',
+      link: 'mailto:atendimento.sglass@gmail.com',
     },
     {
       icon: Clock,
@@ -96,16 +96,26 @@ const Contact = () => {
               </div>
 
               {/* CTA */}
-              <div className="pt-2 sm:pt-4">
+              <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row gap-2">
                 <motion.a
-                  href="https://wa.me/551933770754"
+                  href="https://wa.me/5519991570834"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-accent inline-flex items-center gap-2 w-full sm:w-auto justify-center text-sm sm:text-base"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Falar pelo WhatsApp
+                  WhatsApp 1: (19) 99157-0834
+                </motion.a>
+                <motion.a
+                  href="https://wa.me/5519999896996"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-accent inline-flex items-center gap-2 w-full sm:w-auto justify-center text-sm sm:text-base"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  WhatsApp 2: (19) 99989-6996
                 </motion.a>
               </div>
             </StaggerContainer>
