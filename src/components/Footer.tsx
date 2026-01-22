@@ -107,12 +107,12 @@ const Footer = () => {
               </li>
               <li>
                 <motion.a
-                  href="mailto:alcineia@sglassagricola.com.br"
+                  href="mailto:atendimento.sglass@gmail.com"
                   className="flex items-center gap-2 text-sm sm:text-base text-primary-foreground/70 hover:text-accent transition-colors break-all"
                   whileHover={linkHover}
                 >
                   <Mail className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-                  <span className="break-all">alcineia@sglassagricola.com.br</span>
+                  <span className="break-all">atendimento.sglass@gmail.com</span>
                 </motion.a>
               </li>
             </ul>
